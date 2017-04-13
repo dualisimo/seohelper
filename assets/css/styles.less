@@ -1,0 +1,72 @@
+.plugin-seohelper {
+	.layout-row {
+		header{ display: block; margin: -20px -20px 20px -20px; background-color: #eaeaea; padding: 20px;
+			em{ font-size: 12px; color: #aaa; }
+			h3{ margin-top: 15px; margin-bottom: 0px;
+				b{ font-weight: 600; }
+			}
+		}
+		.custom-row{ position: relative; 
+			.half{ width: 50%; float: left; padding-bottom: 50px;
+				h2{ text-align: center; font-size: 28px; font-weight: 300; letter-spacing: -0.5px; margin-bottom: 20px; }
+				.center{ width: 100%; text-align: center; }
+				.box{ border: 2px solid; margin-bottom: 20px !important ; max-width: 550px; overflow: auto; margin: 0 auto;
+					h4{ display: block; font-weight: 600; margin: 0; padding: 15px; text-transform: uppercase; font-size: 18px; letter-spacing: -0.5px;}
+					ul{ list-style-type: none; padding: 10px 15px; float: left; margin-bottom: 0px;
+						li{ float: left; width: 100%; border-bottom: 1px solid; padding: 5px 0;
+							&:last-child{ border-bottom: none; }
+							span{ float: left; display: block; width: 30%; font-size: 14px; font-weight: 600; letter-spacing: -0.5px;
+								sup{ display: inline-block; width: 18px; height: 18px; border-radius: 15px; margin-left: 5px; line-height: 17px; text-align: center; }
+							}
+							small{ float: left; display: block; width: 70%; font-size: 13px; font-weight: 300; }
+						}
+					}
+				}
+				&.onpage{ padding-right: 15px;
+					h2{ color: #8f3d4b; }
+					.box{ border-color: #8f3d4b;
+						h4{ color: lighten(#8f3d4b, 50%); background-color: #8f3d4b; }
+						sup{ background-color: lighten(#8f3d4b, 50%); }
+					}
+				}
+				&.offpage{ padding-left: 15px;
+					h2{ color: #4a2f48; }
+					.box{ border-color: #4a2f48;
+						h4{ color: lighten(#4a2f48, 50%); background-color: #4a2f48; }
+						sup{ background-color: lighten(#4a2f48, 60%); }
+					}
+				}
+				
+				
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1050px) {
+	.plugin-seohelper{
+		.custom-row{
+			.box{
+				li{
+					span{ width: 40% !important; }
+					small{ width: 60% !important; }
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 850px) {
+	.plugin-seohelper{
+		.custom-row{
+			.half{ width: 100% !important;
+				.box{
+					li{
+						span{ width: 30% !important; }
+						small{ width: 70% !important; }
+					}
+				}
+			}
+		}
+	}
+}

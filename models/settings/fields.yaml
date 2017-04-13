@@ -1,0 +1,120 @@
+tabs:
+    fields:
+        introduction:
+            type: partial
+            path: $/dual/seohelper/models/settings/_settings_hint.htm
+            tab: Scripts & Styles
+
+        min_status:
+            label: Allow Minifying
+            type: switch
+            span: left
+            tab: Scripts & Styles
+
+        com_status:
+            label: Allow Compression
+            type: switch
+            span: left
+            tab: Scripts & Styles
+
+        min_js_scripts:
+            label: Minify scripts
+            type: switch
+            span: left
+            tab: Scripts & Styles
+            trigger:
+                action: disable
+                field: min_status
+                condition: unchecked
+
+        min_css_scripts:
+            label: Minify styles
+            type: switch
+            span: right
+            tab: Scripts & Styles
+            trigger:
+                action: disable
+                field: min_status
+                condition: unchecked
+
+        com_js_scripts:
+            label: Compress scripts
+            type: switch
+            span: left
+            tab: Scripts & Styles
+            trigger:
+                action: disable
+                field: com_status
+                condition: unchecked
+
+        com_css_scripts:
+            label: Compress styles
+            type: switch
+            span: right
+            tab: Scripts & Styles
+            trigger:
+                action: disable
+                field: com_status
+                condition: unchecked
+
+        hint_1:
+            type: hint
+            path: $/dual/seohelper/models/settings/_custom_hint.htm
+            span: full
+            tab: Scripts & Styles
+
+        js_own:
+            label: 'Custom JS scripts:'
+            type: textarea
+            size: small
+            span: left
+            comment: 'Insert Js files with path beyond of base Js folder of current theme. Every path to new line.<br>For example: themes/demo/assets/vendor/bootstrap.js"'
+            commentHtml: true
+            tab: Scripts & Styles
+
+        css_own:
+            label: 'Custom CSS, LESS, SCSS scripts:'
+            type: textarea
+            size: small
+            span: right
+            comment: 'Insert CSS files with path beyond of base CSS folder of current theme. Every path to new line.<br>For example: "themes/demo/assets/less/theme.less"'
+            commentHtml: true
+            tab: Scripts & Styles
+
+        introduction_ana:
+            type: partial
+            path: $/dual/seohelper/models/settings/_settings_hint.htm
+            tab: Analytics
+
+        ana_status:
+            label: Allow Google Analytics Tracking code injection
+            type: switch
+            span: left
+            tab: Analytics
+
+        ana_code:
+            label: Google Analytics ID
+            type: text
+            span: left
+            required: true
+            tab: Analytics
+            comment: 'Insert your tracking ID from Google Analytics.<br>For Example: UA-854132343-3'
+            commentHtml: true
+            trigger:
+                action: disable
+                field: ana_status
+                condition: unchecked
+
+        hint_2:
+            label: GA Script shortcut
+            type: partial
+            path: $/dual/seohelper/models/settings/_parital_hint.htm
+            tab: Analytics
+            span: left
+            comment: 'Put this shortcut to the end of <body> tag'
+            trigger:
+                action: show
+                field: ana_status
+                condition: checked
+    
+
