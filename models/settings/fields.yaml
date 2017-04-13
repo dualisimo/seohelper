@@ -2,7 +2,7 @@ tabs:
     fields:
         introduction:
             type: partial
-            path: $/dual/seohelper/models/settings/_settings_hint.htm
+            path: $/dualisimo/seohelper/models/settings/_settings_hint.htm
             tab: Scripts & Styles
 
         min_status:
@@ -59,7 +59,7 @@ tabs:
 
         hint_1:
             type: hint
-            path: $/dual/seohelper/models/settings/_custom_hint.htm
+            path: $/dualisimo/seohelper/models/settings/_custom_hint.htm
             span: full
             tab: Scripts & Styles
 
@@ -83,7 +83,7 @@ tabs:
 
         introduction_ana:
             type: partial
-            path: $/dual/seohelper/models/settings/_settings_hint.htm
+            path: $/dualisimo/seohelper/models/settings/_settings_hint.htm
             tab: Analytics
 
         ana_status:
@@ -108,7 +108,7 @@ tabs:
         hint_2:
             label: GA Script shortcut
             type: partial
-            path: $/dual/seohelper/models/settings/_parital_hint.htm
+            path: $/dualisimo/seohelper/models/settings/_parital_hint.htm
             tab: Analytics
             span: left
             comment: 'Put this shortcut to the end of <body> tag'

@@ -1,8 +1,8 @@
-<?php namespace Dual\Seohelper\Classes;
+<?php namespace Dualisimo\Seohelper\Classes;
 
 use Config;
 use System\Classes\CombineAssets;
-use Dual\Seohelper\Models\Settings;
+use Dualisimo\Seohelper\Models\Settings;
 
 class Minifier{
 

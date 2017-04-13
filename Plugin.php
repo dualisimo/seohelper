@@ -1,12 +1,12 @@
-<?php namespace Dual\Seohelper;
+<?php namespace Dualisimo\Seohelper;
 
 use Config;
 use Backend;
 use System\Classes\PluginBase;
 use System\Classes\SettingsManager;
 use System\Classes\CombineAssets;
-use Dual\Seohelper\Models\Settings;
-use Dual\Seohelper\Classes\Minifier;
+use Dualisimo\Seohelper\Models\Settings;
+use Dualisimo\Seohelper\Classes\Minifier;
 
 class Plugin extends PluginBase{
 
@@ -19,7 +19,7 @@ class Plugin extends PluginBase{
         return [
             'name'        => 'SEOHelper',
             'description' => 'Sometimes less is more.',
-            'author'      => 'Dual',
+            'author'      => 'Dualisimo',
             'icon'        => 'icon-thumb-tack'
         ];
     }
@@ -28,7 +28,7 @@ class Plugin extends PluginBase{
         return [
             'minifier' => [
                 'label'       => 'SEOHelper',
-                'url'         => Backend::url('dual/seohelper/helper/factors'),
+                'url'         => Backend::url('dualisimo/seohelper/helper/factors'),
                 'icon'        => 'icon-lightbulb-o',
                 'permissions' => ['*'],
                 'order'       => 500,
@@ -36,12 +36,12 @@ class Plugin extends PluginBase{
                     'onpage' => [
                         'label' => 'Page Factors',
                         'icon' => 'icon-puzzle-piece',
-                        'url' => Backend::url('dual/seohelper/helper/factors')
+                        'url' => Backend::url('dualisimo/seohelper/helper/factors')
                     ],
                     'offpage' => [
                         'label' => 'Tips & Tricks',
                         'icon' => 'icon-magic',
-                        'url' => Backend::url('dual/seohelper/helper/hints')
+                        'url' => Backend::url('dualisimo/seohelper/helper/hints')
                     ]
                 ]
             ]
@@ -54,7 +54,7 @@ class Plugin extends PluginBase{
                 'label'         =>  'Injector',
                 'icon'          =>  'icon-thumb-tack',
                 'description'   =>  'Settings for minify JS and CSS code in a head of default template.',
-                'class'         =>  'Dual\Seohelper\Models\Settings',
+                'class'         =>  'Dualisimo\Seohelper\Models\Settings',
                 'order'         =>  500,
                 'category'      => 'SEOHelper',
             ]
@@ -63,7 +63,7 @@ class Plugin extends PluginBase{
 
     public function registerComponents() {
         return [
-            'Dual\Seohelper\Components\Inject'  =>  'injector'
+            'Dualisimo\Seohelper\Components\Inject'  =>  'injector'
         ];
     }
 

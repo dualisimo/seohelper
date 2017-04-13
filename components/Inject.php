@@ -1,4 +1,4 @@
-<?php namespace Dual\Seohelper\Components;
+<?php namespace Dualisimo\Seohelper\Components;
 
 use File;
 use Config;
@@ -6,7 +6,7 @@ use Response;
 use Cms\Classes\Theme;
 use Cms\Classes\ComponentBase;
 use System\Classes\CombineAssets;
-use Dual\Seohelper\Models\Settings;
+use Dualisimo\Seohelper\Models\Settings;
 
 class Inject extends ComponentBase{
 
@@ -126,10 +126,10 @@ class Inject extends ComponentBase{
 
     function anaJS($id, $old){
 
-        $anaPath = 'plugins/dual/seohelper/components/inject/default-analytics.htm';
+        $anaPath = 'plugins/dualisimo/seohelper/components/inject/default-analytics.htm';
         $anaFile = File::get($anaPath);
         $anaFile = str_replace("§code§", $id, $anaFile);
-        $pathExist = 'plugins/dual/seohelper/components/inject/analytics.htm';
+        $pathExist = 'plugins/dualisimo/seohelper/components/inject/analytics.htm';
 
         if($old == null){
 

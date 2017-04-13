@@ -1,4 +1,4 @@
-<?php namespace Dual\Seohelper\Controllers;
+<?php namespace Dualisimo\Seohelper\Controllers;
 
 use BackendMenu;
 use System\Classes\CombineAssets;
@@ -12,7 +12,7 @@ class Helper extends Controller
 		parent::__construct();
 
 		$styles = array();
-		$styles[0] = '/plugins/dual/seohelper/assets/css/styles.less';
+		$styles[0] = '/plugins/dualisimo/seohelper/assets/css/styles.less';
 		$this->addCss(CombineAssets::combine($styles, base_path('/')));
 	}
 
@@ -23,12 +23,12 @@ class Helper extends Controller
 	public function factors(){
 
 		$this->vars['title'] = 'Page Factors';
-		BackendMenu::setContext('Dual.Seohelper', 'minifier', 'factors');
+		BackendMenu::setContext('Dualisimo.Seohelper', 'minifier', 'factors');
 	}
 
 	public function hints(){
 
 		$this->vars['title'] = 'Tips & Tricks';
-		BackendMenu::setContext('Dual.Seohelper', 'minifier', 'hints');
+		BackendMenu::setContext('Dualisimo.Seohelper', 'minifier', 'hints');
 	}
 }
