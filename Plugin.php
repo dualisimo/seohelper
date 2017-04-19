@@ -5,8 +5,8 @@ use Backend;
 use System\Classes\PluginBase;
 use System\Classes\SettingsManager;
 use System\Classes\CombineAssets;
-use Dualisimo\Seohelper\Models\Settings;
-use Dualisimo\Seohelper\Classes\Minifier;
+use Dualisimo\Seohelper\Classes\Minification;
+use Dualisimo\Seohelper\Classes\GeneralSettings;
 
 class Plugin extends PluginBase{
 
@@ -18,7 +18,7 @@ class Plugin extends PluginBase{
     public function pluginDetails(){
         return [
             'name'        => 'SEOHelper',
-            'description' => 'Sometimes less is more.',
+            'description' => 'Manage Minification, Compression, Cache or Debug mode.',
             'author'      => 'Dualisimo',
             'icon'        => 'icon-thumb-tack'
         ];
@@ -51,25 +51,29 @@ class Plugin extends PluginBase{
     public function registerSettings() {
         return [
             'settings' =>  [
-                'label'         =>  'Injector',
+                'label'         =>  'SEOHelper',
                 'icon'          =>  'icon-thumb-tack',
-                'description'   =>  'Settings for minify JS and CSS code in a head of default template.',
+                'description'   =>  'Manage Minification, Compression, Cache or Debug mode.',
                 'class'         =>  'Dualisimo\Seohelper\Models\Settings',
                 'order'         =>  500,
-                'category'      => 'SEOHelper',
+                'category'      =>  'Settings',
             ]
         ];
     }
 
     public function registerComponents() {
         return [
-            'Dualisimo\Seohelper\Components\Inject'  =>  'injector'
+            'Dualisimo\Seohelper\Components\Minifier'  =>  'minifier',
+            'Dualisimo\Seohelper\Components\Analyzer'  =>  'analyzer'
         ];
     }
 
     public function boot(){
 
-        $minifier = new Minifier();
+        $settings = new GeneralSettings();
+        $settings->init();
+
+        $minifier = new Minification();
         $minifier->minify();
 
     }

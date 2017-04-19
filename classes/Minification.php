@@ -4,7 +4,7 @@ use Config;
 use System\Classes\CombineAssets;
 use Dualisimo\Seohelper\Models\Settings;
 
-class Minifier{
+class Minification{
 
 	public function minify(){
 
@@ -43,7 +43,6 @@ class Minifier{
 	}
 
 	public function disableMinification(){
-		
 		Config::set('cms.enableAssetMinify', false);
 	}
 }

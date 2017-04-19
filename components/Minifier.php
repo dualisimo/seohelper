@@ -2,18 +2,17 @@
 
 use File;
 use Config;
-use Response;
 use Cms\Classes\Theme;
 use Cms\Classes\ComponentBase;
 use System\Classes\CombineAssets;
 use Dualisimo\Seohelper\Models\Settings;
 
-class Inject extends ComponentBase{
+class Minifier extends ComponentBase{
 
     public function componentDetails(){
         return [
-            'name'        => 'Injector',
-            'description' => 'Inject your minify and compress all scripts and styles.'
+            'name'        => 'Minifier',
+            'description' => 'Inject all your minified and compressed scripts and styles into the pages.'
         ];
     }
 
@@ -30,10 +29,6 @@ class Inject extends ComponentBase{
         $comJs = $settings->com_js_scripts;
         $comCss = $settings->com_css_scripts;
 
-        $anaStatus = $settings->ana_status;
-        $anaCode = $settings->ana_code;
-        $anaOld = $settings->ana_old;
-
         if($comStatus){
 
             $this->comJs($comJs, $activeTheme);
@@ -45,13 +40,6 @@ class Inject extends ComponentBase{
             $this->comCss($comStatus, $activeTheme);
 
         }
-
-        if($anaStatus && $anaCode != null){
-            $this->anaJS($anaCode, $anaOld);
-        }
-
-        $this->page['ana'] = $anaStatus;
-        
     }
 
     function comJs($stat, $theme){
@@ -121,28 +109,6 @@ class Inject extends ComponentBase{
                     $this->addCss('/'. $file);
                 }
             }
-        }
-    }
-
-    function anaJS($id, $old){
-
-        $anaPath = 'plugins/dualisimo/seohelper/components/inject/default-analytics.htm';
-        $anaFile = File::get($anaPath);
-        $anaFile = str_replace("§code§", $id, $anaFile);
-        $pathExist = 'plugins/dualisimo/seohelper/components/inject/analytics.htm';
-
-        if($old == null){
-
-            File::put($pathExist, $anaFile);
-            Settings::set('ana_old', $id);
-        } else{
-
-            if($old != $id){
-
-                File::delete($pathExist);
-                File::put($pathExist, $anaFile);
-                Settings::set('ana_old', $id);
-            } 
         }
     }
 

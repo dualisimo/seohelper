@@ -1,27 +1,27 @@
 tabs:
     fields:
-        introduction:
+        introduction_mini:
             type: partial
-            path: $/dualisimo/seohelper/models/settings/_settings_hint.htm
-            tab: Scripts & Styles
+            path: $/dualisimo/seohelper/models/settings/_settings_mini.htm
+            tab: Minifier
 
         min_status:
             label: Allow Minifying
             type: switch
             span: left
-            tab: Scripts & Styles
+            tab: Minifier
 
         com_status:
             label: Allow Compression
             type: switch
             span: left
-            tab: Scripts & Styles
+            tab: Minifier
 
         min_js_scripts:
             label: Minify scripts
             type: switch
             span: left
-            tab: Scripts & Styles
+            tab: Minifier
             trigger:
                 action: disable
                 field: min_status
@@ -31,7 +31,7 @@ tabs:
             label: Minify styles
             type: switch
             span: right
-            tab: Scripts & Styles
+            tab: Minifier
             trigger:
                 action: disable
                 field: min_status
@@ -41,7 +41,7 @@ tabs:
             label: Compress scripts
             type: switch
             span: left
-            tab: Scripts & Styles
+            tab: Minifier
             trigger:
                 action: disable
                 field: com_status
@@ -51,7 +51,7 @@ tabs:
             label: Compress styles
             type: switch
             span: right
-            tab: Scripts & Styles
+            tab: Minifier
             trigger:
                 action: disable
                 field: com_status
@@ -61,7 +61,7 @@ tabs:
             type: hint
             path: $/dualisimo/seohelper/models/settings/_custom_hint.htm
             span: full
-            tab: Scripts & Styles
+            tab: Minifier
 
         js_own:
             label: 'Custom JS scripts:'
@@ -70,7 +70,7 @@ tabs:
             span: left
             comment: 'Insert Js files with path beyond of base Js folder of current theme. Every path to new line.<br>For example: themes/demo/assets/vendor/bootstrap.js"'
             commentHtml: true
-            tab: Scripts & Styles
+            tab: Minifier
 
         css_own:
             label: 'Custom CSS, LESS, SCSS scripts:'
@@ -79,25 +79,42 @@ tabs:
             span: right
             comment: 'Insert CSS files with path beyond of base CSS folder of current theme. Every path to new line.<br>For example: "themes/demo/assets/less/theme.less"'
             commentHtml: true
-            tab: Scripts & Styles
+            tab: Minifier
+        
+        introduction_gene:
+            type: partial
+            path: $/dualisimo/seohelper/models/settings/_settings_gene.htm
+            tab: General
+
+        cache_status:
+            label: Allow Cache
+            type: switch
+            span: left
+            tab: General
+
+        debug_status:
+            label: Allow Debug mode
+            type: switch
+            span: right
+            tab: General
 
         introduction_ana:
             type: partial
-            path: $/dualisimo/seohelper/models/settings/_settings_hint.htm
-            tab: Analytics
+            path: $/dualisimo/seohelper/models/settings/_settings_ana.htm
+            tab: Analyzer
 
         ana_status:
             label: Allow Google Analytics Tracking code injection
             type: switch
             span: left
-            tab: Analytics
+            tab: Analyzer
 
         ana_code:
             label: Google Analytics ID
             type: text
             span: left
             required: true
-            tab: Analytics
+            tab: Analyzer
             comment: 'Insert your tracking ID from Google Analytics.<br>For Example: UA-854132343-3'
             commentHtml: true
             trigger:
@@ -109,7 +126,7 @@ tabs:
             label: GA Script shortcut
             type: partial
             path: $/dualisimo/seohelper/models/settings/_parital_hint.htm
-            tab: Analytics
+            tab: Analyzer
             span: left
             comment: 'Put this shortcut to the end of <body> tag'
             trigger:
