@@ -71,7 +71,7 @@ class Plugin extends PluginBase{
     public function boot(){
 
         $settings = new GeneralSettings();
-        $settings->init();
+        $settings->settings();
 
         $minifier = new Minification();
         $minifier->minify();
