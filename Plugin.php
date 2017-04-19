@@ -5,6 +5,7 @@ use Backend;
 use System\Classes\PluginBase;
 use System\Classes\SettingsManager;
 use System\Classes\CombineAssets;
+use Dualisimo\Seohelper\Models\Settings;
 use Dualisimo\Seohelper\Classes\Minification;
 use Dualisimo\Seohelper\Classes\GeneralSettings;
 

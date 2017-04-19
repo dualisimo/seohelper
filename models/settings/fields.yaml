@@ -96,6 +96,19 @@ tabs:
             label: Allow Debug mode
             type: switch
             span: right
+            default: checked;
+            tab: General
+
+        hint_3:
+            type: hint
+            path: $/dualisimo/seohelper/models/settings/_cache_hint.htm
+            span: left
+            tab: General 
+
+        hint_4:
+            type: hint
+            path: $/dualisimo/seohelper/models/settings/_debug_hint.htm
+            span: right
             tab: General
 
         introduction_ana:
