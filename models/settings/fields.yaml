@@ -14,7 +14,7 @@ tabs:
         com_status:
             label: Allow Compression
             type: switch
-            span: left
+            span: right
             tab: Minifier
 
         min_js_scripts:
@@ -27,24 +27,24 @@ tabs:
                 field: min_status
                 condition: unchecked
 
-        min_css_scripts:
-            label: Minify styles
+        com_js_scripts:
+            label: Compress scripts
             type: switch
             span: right
             tab: Minifier
             trigger:
                 action: disable
-                field: min_status
+                field: com_status
                 condition: unchecked
 
-        com_js_scripts:
-            label: Compress scripts
+        min_css_scripts:
+            label: Minify styles
             type: switch
             span: left
             tab: Minifier
             trigger:
                 action: disable
-                field: com_status
+                field: min_status
                 condition: unchecked
 
         com_css_scripts:

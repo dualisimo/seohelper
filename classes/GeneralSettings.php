@@ -19,7 +19,11 @@ class GeneralSettings{
         if($stat){
             Config::set('app.debug', true);
         } elseif($stat == null){
-            Settings::set('debug_status', 1);
+            if(Config::get('app.debug'))
+                Settings::set('debug_status', 1);
+            else{
+                Settings::set('debug_status', 0);
+            }
         } else{
             Config::set('app.debug', false);
         }
