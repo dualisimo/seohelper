@@ -42,10 +42,20 @@ class Minifier extends ComponentBase{
         }
     }
 
+    function getThemePath($theme, $folder){
+        return 'themes/' . $theme . '/assets/' . $folder;
+    }
+
     function comJs($stat, $theme){
 
-        $jsPath = 'themes/' . $theme . '/assets/javascript';
-        $jsFiles = File::files($jsPath);
+        $jsPath = $this->getThemePath($theme, 'javascript');
+        $jsFiles = array();
+        $jsFilesWithPath = File::files($jsPath);
+        $jsFilesCount = count($jsFilesWithPath);
+
+        for ($i = 0; $i < $jsFilesCount; $i++) {
+            array_push($jsFiles, basename($jsFilesWithPath[$i]));
+        }
 
         $settings = Settings::instance();
         $minJs = $settings->min_js_scripts;
@@ -56,7 +66,7 @@ class Minifier extends ComponentBase{
         }
 
         if($stat){
-            $this->addJs(CombineAssets::combine($jsFiles, base_path('/')));
+            $this->addJs(CombineAssets::combine($jsFiles, themes_path($theme . '/assets/javascript')));
 
         } else{
 
@@ -65,7 +75,7 @@ class Minifier extends ComponentBase{
                 foreach ($jsFiles as $file){
                     $help = array();
                     $help[] = $file;
-                    $this->addJs(CombineAssets::combine($help, base_path('/')));
+                    $this->addJs(CombineAssets::combine($help, themes_path($theme . '/assets/javascript')));
                 }
 
             } else {
@@ -79,8 +89,14 @@ class Minifier extends ComponentBase{
 
     function comCss($stat, $theme){
 
-        $cssPath = 'themes/' . $theme . '/assets/css';
-        $cssFiles = File::files($cssPath);
+        $cssPath = $this->getThemePath($theme, 'css');
+        $cssFiles = array();
+        $cssFilesWithPath = File::files($cssPath);
+        $cssFilesCount = count($cssFilesWithPath);
+
+        for ($i = 0; $i < $cssFilesCount; $i++) {
+            array_push($cssFiles, basename($cssFilesWithPath[$i]));
+        }
 
         $settings = Settings::instance();
         $minCss = $settings->min_css_scripts;
@@ -91,7 +107,7 @@ class Minifier extends ComponentBase{
         }
 
         if($stat){
-            $this->addCss(CombineAssets::combine($cssFiles, base_path('/')));
+            $this->addCss(CombineAssets::combine($cssFiles, themes_path($theme . '/assets/css')));
 
         } else{
 
@@ -100,7 +116,7 @@ class Minifier extends ComponentBase{
                 foreach ($cssFiles as $file){
                     $help = array();
                     $help[] = $file;
-                    $this->addCss(CombineAssets::combine($help, base_path('/')));
+                    $this->addCss(CombineAssets::combine($help, themes_path($theme . '/assets/css')));
                 }
 
             } else {
