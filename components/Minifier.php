@@ -21,10 +21,10 @@ class Minifier extends ComponentBase{
     }
 
     public function onRun(){
-        
+
         $activeTheme = Config::get('cms.activeTheme');
         $settings = Settings::instance();
-        
+
         $comStatus = $settings->com_status;
         $comJs = $settings->com_js_scripts;
         $comCss = $settings->com_css_scripts;
@@ -81,7 +81,7 @@ class Minifier extends ComponentBase{
             } else {
 
                 foreach ($jsFiles as $file){
-                   $this->addJs('/'. $file);
+                   $this->addJs('/' . 'themes/' . $theme . '/assets/javascript/' . $file);
                 }
             }
         }
@@ -122,23 +122,23 @@ class Minifier extends ComponentBase{
             } else {
 
                 foreach ($cssFiles as $file){
-                    $this->addCss('/'. $file);
+                    $this->addCss('/' . 'themes/' . $theme . '/assets/css/' . $file);
                 }
             }
         }
     }
 
     function custom($custom, $exist){
-        
+
         $delimeter = PHP_EOL;
         $scripts = explode($delimeter, $custom);
-        
+
         $count = 0;
         foreach ($scripts as $item) { $count++; }
         for ($i = 0; $i < $count-1; $i++) {
             $scripts[$i] = substr_replace($scripts[$i], "", -1);
         }
-        
+
         $exist = array_merge($exist, $scripts);
         return $exist;
 
