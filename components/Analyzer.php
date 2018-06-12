@@ -18,7 +18,7 @@ class Analyzer extends ComponentBase{
     }
 
     public function onRun(){
-        
+
         $settings = Settings::instance();
 
         $anaStatus = $settings->ana_status;
@@ -30,7 +30,7 @@ class Analyzer extends ComponentBase{
         }
 
         $this->page['ana'] = $anaStatus;
-        
+
     }
 
     function anaJS($id, $old){
@@ -51,7 +51,7 @@ class Analyzer extends ComponentBase{
                 File::delete($pathExist);
                 File::put($pathExist, $anaFile);
                 Settings::set('ana_old', $id);
-            } 
+            }
         }
     }
 }
